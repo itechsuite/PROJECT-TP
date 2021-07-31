@@ -21,6 +21,15 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+    PagerView:{
+        height:win.height /3,
+        
+    }, 
+    signUp:{
+        width:100,
+        backgroundColor:'#DA4440'
+    },
+
 
 
 })
