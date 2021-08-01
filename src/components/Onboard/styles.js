@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize:22,
         marginTop:20, 
-        marginBottom:20,
+        marginBottom:10,
         color:'#3C3C43'
     },
 
     description:{
-        margin:20,
+        marginBottom:20,
         fontSize:15, 
 
     },

@@ -1,11 +1,10 @@
+import { NativeBaseProvider, Button} from 'native-base'
 import React from 'react'
-import { Button, FlatList, Image, StyleSheet, Text, View } from 'react-native'
+import {  FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import PagerView from 'react-native-pager-view'
 import Onboard from '../../components/Onboard'
 import Page from '../../demo/Page'
 import styles from './styles'
-// import styles
-import Styles from './styles'
 
 const OnboardingScreen = () => {
     return (
@@ -58,12 +57,46 @@ const OnboardingScreen = () => {
 
                 {/* indicator */}
 
-                <Button 
-                    title="Sign up"
-                    style={styles.signUp}
+                <NativeBaseProvider >
+                    <Button 
                     
+                    style={styles.signUp}
+                    margin={7}
+                    bg="#da4440"
+                    _text={styles.signUpText}
+                    >
+                        Sign Up
+                    </Button>
 
-                />
+                    <View style={styles.newAccount}>
+                        <Text> Have an account?</Text>
+                        <Text style={styles.loginBtn}>Log in</Text>
+                    </View>
+                    
+                    {/* Policy and Terms and condition */}
+
+                    <View style={styles.footer}> 
+                        <Text> Creating a account means you accept our </Text>
+                        <View style={styles.tc}>
+                            <Text 
+                            style={styles.footerHighlight}>
+                                Terms and Condition
+                            </Text> 
+
+                            <Text> and </Text>
+
+                            <Text 
+                            style={styles.footerHighlight}
+                            >
+                                privacy policy
+                            </Text>
+                        </View>
+                        
+                    </View>
+
+                </NativeBaseProvider>
+
+                
         </View>
     )
 }
