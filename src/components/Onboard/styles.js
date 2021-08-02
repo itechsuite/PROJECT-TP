@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         padding:10,
+        margin:10,
+        width:Dimensions.get('window').width
         
     },
     image:{
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     },
 
     description:{
-        marginBottom:20,
+        margin:20,
         fontSize:15, 
 
     },

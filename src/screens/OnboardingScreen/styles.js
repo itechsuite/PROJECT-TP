@@ -1,30 +1,31 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { fontWeight, margin } from 'styled-system'
-
+import Global from '../../constants/Global'
 
 const win = Dimensions.get('window')
+const GLOBAL = require('../../constants/Global')
+
+
 const styles = StyleSheet.create({
     container:{
         flex:1,
         width:win.width, 
         height:win.height,
-        backgroundColor:'#fff',
 
     }, 
 
     logoSize:{
-        width:200, 
+        width:150, 
         height:100,
                     
     },
     header:{
-        marginTop:10,
         alignItems:'center',
         justifyContent:'center',
     },
     PagerView:{
-        height:win.height /2.5,
+        height:win.height /1,
         
     }, 
     signUp:{
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     },
     signUpText:{
         textTransform:'uppercase',
-        color:'#fff',
+        color: GLOBAL.color.white,
         fontWeight:'bold',
         fontSize:20,
 
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     loginBtn:{  
         marginStart:10,
         fontWeight:'bold',
-        color:'#DA4440'
+        color:GLOBAL.color.primary
 
     },
 
@@ -59,15 +60,17 @@ const styles = StyleSheet.create({
     },
 
     tc:{
-
         flexDirection:'row',
-
     },
 
     footerHighlight:{
-        color:'#DA4440', 
+        color:Global.color.primary, 
         fontWeight:'500',
 
+    },
+    expandingDot:{
+        marginTop:100,
+        color:'red',
     },
 
 
