@@ -1,5 +1,5 @@
 import { NativeBaseProvider, Button} from 'native-base'
-import React from 'react'
+import React, {useRef, useState} from 'react'
 import {  FlatList, Image, StyleSheet, Text, View , Animated} from 'react-native'
 import PagerView from 'react-native-pager-view'
 import Onboard from '../../components/Onboard'
@@ -36,9 +36,16 @@ const OnboardingScreen = ({navigation}) => {
             image:require('../../res/images/delivery.png')
         },
     ]
+    const [activeIndex, setActiveIndex] = React.useState(0);
+
+    let ref = React.useRef(null)
 
     const scrollX = React.useRef(new Animated.Value(0)).current;
 
+
+    const onViewRef = React.useRef(({ viewableItems }) => {
+        setActiveIndex(viewableItems[0].index);
+      });
     return (
         <View style ={styles.container}>
             <View style={styles.header}> 
@@ -118,7 +125,7 @@ const OnboardingScreen = ({navigation}) => {
                     </Button>
                     <View style={styles.newAccount}>
                         <Text> Have an account?</Text>
-                        <Text style={styles.loginBtn}>Log in</Text>
+                        <Text onPress={() => navigation.navigate('login')} style={styles.loginBtn}>Log in</Text>
                     </View>
                     
                     {/* Policy and Terms and condition */}

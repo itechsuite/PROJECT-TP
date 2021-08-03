@@ -9,6 +9,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import Page from './src/demo/Page';
+import LoginScreen from './src/screens/LoginScreen';
+import LoginEmail from './src/screens/LoginEmail';
 
 function HomeScreen() {
   return (
@@ -31,13 +33,15 @@ function App() {
         
       >
 
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="onboarding" 
          options={{
            headerShown:false
          }}
          component ={OnboardingScreen} />
          <Stack.Screen name="signup" component={SignUpScreen} options={{headerShown:false}} />
+         <Stack.Screen name="login" component={LoginScreen} options={{headerShown:false}} />
+         <Stack.Screen name="loginemail" component={LoginEmail} options={{headerShown:false}} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,6 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { marginTop } from 'styled-system'
 import Global from '../../constants/Global'
+
+
 
 const styles = StyleSheet.create({
     container:{
@@ -14,8 +17,7 @@ const styles = StyleSheet.create({
     },
     option:{
         alignItems:'center',
-        justifyContent:'center',
-        flex:2,
+        flex:1,
 
     },
     footer:{
@@ -45,3 +47,5 @@ const styles = StyleSheet.create({
 })
 
 export default styles
+
+
