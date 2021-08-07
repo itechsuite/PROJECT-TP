@@ -11,6 +11,8 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import Page from './src/demo/Page';
 import LoginScreen from './src/screens/LoginScreen';
 import LoginEmail from './src/screens/LoginEmail';
+import SignUpEmail from './src/screens/SignUpEmail';
+import PhoneValidationScreen from './src/screens/PhoneValidationScreen';
 
 function HomeScreen() {
   return (
@@ -25,7 +27,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="onboarding" 
+      <Stack.Navigator initialRouteName="phonevalidation" 
         screenOptions={{
           
         }}
@@ -42,6 +44,8 @@ function App() {
          <Stack.Screen name="signup" component={SignUpScreen} options={{headerShown:false}} />
          <Stack.Screen name="login" component={LoginScreen} options={{headerShown:false}} />
          <Stack.Screen name="loginemail" component={LoginEmail} options={{headerShown:false}} />
+         <Stack.Screen name="signupemail" component={SignUpEmail} options={{headerShown:false}} />
+         <Stack.Screen name="phonevalidation" component={PhoneValidationScreen} options={{headerShown:false}} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -30,6 +30,7 @@ const SignUpScreen = ({navigation}) => {
 
              <SocialButton
                 title={"Continue with Email"}
+                onpress={() => navigation.navigate('signupemail')}
              />
              <SocialButton
                 title={"Continue with Guest"}

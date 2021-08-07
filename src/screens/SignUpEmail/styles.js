@@ -1,6 +1,5 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import { alignItems } from 'styled-system'
 import Global from '../../constants/Global'
 
 const dimen = Dimensions.get('window')
@@ -28,14 +27,7 @@ const styles = StyleSheet.create({
     backBtn:{
         color:Global.color.black,
     },
-    loginForm:{
-        margin:20,
-
-    },
-    formControl:{
-        margin:20,
-
-    },
+    
     footer:{
         flexDirection:'row',
         alignItems:'center',

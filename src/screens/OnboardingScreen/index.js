@@ -1,7 +1,6 @@
 import { NativeBaseProvider, Button} from 'native-base'
 import React, {useRef, useState} from 'react'
 import {  FlatList, Image, StyleSheet, Text, View , Animated} from 'react-native'
-import PagerView from 'react-native-pager-view'
 import Onboard from '../../components/Onboard'
 import styles from './styles'
 import {ExpandingDot} from "react-native-animated-pagination-dots"
