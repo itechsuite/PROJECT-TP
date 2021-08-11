@@ -4,7 +4,7 @@ import FormInputText from '../../FormInputText'
 
 const Level1 = () => {
     return (
-        <View style={styles.loginForm}>
+        <View style={styles.loginForm} collapsable={true}>
 
         <View style={styles.formControl}>
             <FormInputText

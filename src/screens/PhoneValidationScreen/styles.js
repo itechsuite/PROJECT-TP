@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     subContainer:{
         marginTop:20,
         alignItems:'center',
+        flex:1,
     },
 
     header:{
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     },
 
     phoneIcon:{
+        flex:1,
         width:200, 
         height:200, 
     },

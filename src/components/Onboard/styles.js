@@ -1,24 +1,25 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
+const {width , height} = Dimensions.get('screen')
+
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+        padding:20, 
         alignItems:'center',
-        justifyContent:'center',
-        padding:10,
-        margin:10,
-        width:Dimensions.get('window').width
+        width:width,
+        height: height * 0.6, 
+        
         
     },
     image:{
         width:150,
         height:160, 
-        resizeMode:'contain'
+        resizeMode:'cover'
     },
     title:{
         fontWeight:'bold',
-        fontSize:22,
+        fontSize:width * 0.1,
         marginTop:20, 
         marginBottom:10,
         color:'#3C3C43'

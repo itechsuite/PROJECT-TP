@@ -5,6 +5,7 @@ import Onboard from '../../components/Onboard'
 import styles from './styles'
 import {ExpandingDot} from "react-native-animated-pagination-dots"
 import Global from '../../constants/Global'
+import Svg from 'react-native-svg'
 
 
 const OnboardingScreen = ({navigation}) => {
@@ -32,7 +33,7 @@ const OnboardingScreen = ({navigation}) => {
             key:'4',
             title:'Fast Delivery',
             description:'Our Delivery system has been optimized to service multiple orders in a very short time',
-            image:require('../../res/images/delivery.png')
+            image:require('../../res/images/svg/facebook.svg')
         },
     ]
     const [activeIndex, setActiveIndex] = React.useState(0);
@@ -56,12 +57,14 @@ const OnboardingScreen = ({navigation}) => {
                 />
             </View>
 
-            <View style={{flex:2, position:'relative'}}  >
+            <View style={{flex:2, }}  >
 
             {/* f;atlist to display onboarding information */}
-                <FlatList 
+            <View style={styles.PagerView}>
+
+                <Animated.FlatList 
                     data={data}
-                    style={styles.PagerView}
+                    contentContainerStyle ={{  justifyContent:'center', alignItems:'center'}}
                     
                     renderItem={({item, index}) =>(
                         <Onboard
@@ -74,23 +77,29 @@ const OnboardingScreen = ({navigation}) => {
                     )}
                     keyExtractor={item => item.key}
                     showsHorizontalScrollIndicator={false}
+                    pagingEnabled={true}
+                
                     horizontal
+                    bounces={false}
+                    onScroll = {Animated.event( [
+                        { nativeEvent: {contentOffset: {x :scrollX}}}], 
+                         {useNativeDriver: false}
+                        )}
+                    
+                    
                 />
+            </View>
+
                  <ExpandingDot 
                     data={data}
                     
-                    style={styles.expandingDot}
+                    style={[styles.expandingDot , ]}
                     activeDotColor={Global.color.primary}
                     
                     expandingDotWidth={30}
                     scrollX={scrollX}
                     inActiveDotOpacity={0.6}
-                    onScroll={Animated.event(
-                        [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-                        {
-                          useNativeDriver: false,
-                        }
-                      )}
+           
                     dotStyle={{ 
                         width:10,
                         height:10,
@@ -110,6 +119,7 @@ const OnboardingScreen = ({navigation}) => {
 
                 {/* indicator */}
             <View style={{flex:1}} >
+                   
                 <NativeBaseProvider >
                     
                     <Button 

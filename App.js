@@ -13,6 +13,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import LoginEmail from './src/screens/LoginEmail';
 import SignUpEmail from './src/screens/SignUpEmail';
 import PhoneValidationScreen from './src/screens/PhoneValidationScreen';
+import Demo from './src/screens/Demo';
 
 function HomeScreen() {
   return (
@@ -27,7 +28,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="phonevalidation" 
+      <Stack.Navigator initialRouteName="onboarding" 
         screenOptions={{
           
         }}
@@ -46,6 +47,7 @@ function App() {
          <Stack.Screen name="loginemail" component={LoginEmail} options={{headerShown:false}} />
          <Stack.Screen name="signupemail" component={SignUpEmail} options={{headerShown:false}} />
          <Stack.Screen name="phonevalidation" component={PhoneValidationScreen} options={{headerShown:false}} />
+         <Stack.Screen name="demo" component={Demo} options={{headerShown:false}} />
 
       </Stack.Navigator>
     </NavigationContainer>

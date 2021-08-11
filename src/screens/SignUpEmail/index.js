@@ -19,6 +19,11 @@ const SignUpEmail = ({navigation}) => {
 const icon = <FontAwesome5 name={'comments'} />
 const [isChecked, setIsChecked] = React.useState(false)
 const scrollX = React.useRef(new Animated.Value(0)).current;
+const [currentPosition, setCurrentPosition] = React.useState(0) // zero is the default value 
+
+const viewpager = PagerView;
+ const pagerRef = useRef(null)
+
 
 const screens = [
 
@@ -35,28 +40,67 @@ const screens = [
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <FontAwesome5 onPress={() => navigation.goBack()} name={'chevron-left'} size={20} style={styles.backBtn} />
+                <FontAwesome5 
+                    onPress={() => {
+                        if( currentPosition !== 0 ){
+                            pagerRef.current?.setPage(currentPosition -1)
+                        }else {
+                            navigation.goBack()
+                        }
+                    }} 
+                    name={'chevron-left'} size={20} 
+                    style={styles.backBtn} />
                 <Text style={styles.headerText}>Sign Up</Text>
 
             </View>
             
 
             {/* VIEW PAGER TO POPULATE DIFFERENT PAGES ON PRESSING NEXT BUTTON */}
-            <PagerView initialPage={0} style={{flex:2}}>
-                <View key="1">
+            <PagerView 
+                initialPage={0} 
+                style={{flex:2}}
+                // scrollEnabled={false}
+                orientation="vertical"
+                showPageIndicator={true}
+                // scrollEnabled={false}
+                // onPageScrollStateChanged = {(e) => {
+                //     console.log(e.currentTarget);
+                // }}
+                onPageScroll={({nativeEvent}) => {
+                    setCurrentPosition(nativeEvent.position)
+                    
+                }}
+                
+            
+                ref={pagerRef}
+                
+                >
+                <View key="1" collapsable={false}>
                     <Level1 />
                 </View>
                 <View key="2">
                     <Level2 />
                 </View>
-                <View key="3">
-                    <Text>Hello</Text>
-                </View>
             </PagerView>
                
 
            
-            <CommandBtn title={"Next"}  />
+            <CommandBtn 
+                title={"Next"} 
+                // onPress={ () => navigation.navigate('phonevalidation')}
+                onPress={() => {
+
+                    if (currentPosition === 1){
+                        navigation.navigate('phonevalidation')
+                    }else {
+                        pagerRef.current?.setPage(1)
+
+                    }
+                    console.log("on button click- ",currentPosition)
+
+                
+                }}
+             />
 
             
             <HaveAnAccount 

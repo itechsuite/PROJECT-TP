@@ -5,21 +5,22 @@ import Animated from 'react-native-reanimated';
 import styles from './styles'
 import FormInputText from '../../components/FormInputText';
 
-const PhoneValidationScreen = () => {
+//phone number text input import 
+import PhoneInput from 'react-native-phone-number-input';
+import CommandBtn from '../../components/CommandBtn';
+import { backgroundColor } from 'styled-system';
+
+const PhoneValidationScreen = ({navigation}) => {
 const icon = <FontAwesome5 name={'comments'} />
 const [isChecked, setIsChecked] = React.useState(false)
 const scrollX = React.useRef(new Animated.Value(0)).current;
 
-const screens = [
-
-    {
-        key:'1',
-        title:'Tasty Meals',
-        description:'Our Delivery system has been optimized to service multiple orders in a very short time',
-        image:require('../../res/images/favorite.png')
-
-    }
-]
+//used for the phoneinput
+const [value, setValue] = useState("");
+const [formattedValue, setFormattedValue] = useState("");
+const [valid, setValid] = useState(false);
+const [showMessage, setShowMessage] = useState(false);
+const phoneInput = useRef(null);
 
 
     return (
@@ -40,20 +41,53 @@ const screens = [
                 />
 
 
-                <Text style={[styles.headerText, {fontSize:20,}]}> 
-                    Phone Number Verification
-                </Text>
 
-                <Text style={styles.description}> we will send you confirmation code on this number</Text>
+                <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+
+                    <Text style={[styles.headerText, {fontSize:20,}]}> 
+                        Phone Number Verification
+                    </Text>
+
+                    <Text style={styles.description}> we will send you confirmation code on this number</Text>
+
+                </View>
 
 
-                <FormInputText
-                    title={"First Name"}
-                    placeholder={"Enter First Name"}
-                    placeholderTextColor={"#3C3C43"}
-                    width={Dimensions.get('window').width}
-             
-              />
+                <View style={{flex:1, }}>
+                    <PhoneInput 
+                        defaultCode={'NG'}
+                        defaultValue={value}
+                        
+                        layout="first"
+                        ref={phoneInput}
+                        onChangeText= {(text) => setValue(text)}
+                        onChangeFormattedText = {(text) => setFormattedValue(text)}
+
+
+
+
+                    />
+
+                    <CommandBtn
+                        title={"Get Otp"}
+                        onPress={() => {
+                            const checkValid = phoneInput.current?.isValidNumber(value)
+                            setShowMessage(true)
+                            setValid(checkValid ? checkValid :false)
+                            if (checkValid ){
+                                alert('Phone number validated correctly')
+                            }else {
+                                alert('phone number failed validation')
+                            }
+                        }}
+                        
+                    />
+                </View>
+                    
+
+
+
+
 
 
             </View>

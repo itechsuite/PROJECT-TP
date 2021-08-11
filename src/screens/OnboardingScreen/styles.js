@@ -3,15 +3,15 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { fontWeight, margin } from 'styled-system'
 import Global from '../../constants/Global'
 
-const win = Dimensions.get('window')
+const {width, height} = Dimensions.get('screen')
 const GLOBAL = require('../../constants/Global')
 
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        width:win.width, 
-        height:win.height,
+        width:width, 
+        height:height,
 
     }, 
 
@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     PagerView:{
-        height:win.height /1,
-        
+
     }, 
     signUp:{
         resizeMode:'contain', 
@@ -69,6 +68,7 @@ const styles = StyleSheet.create({
 
     },
     expandingDot:{
+        flex:0.4, 
         marginTop:100,
         color:'red',
     },
