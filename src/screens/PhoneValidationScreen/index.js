@@ -8,7 +8,7 @@ import FormInputText from '../../components/FormInputText';
 //phone number text input import 
 import PhoneInput from 'react-native-phone-number-input';
 import CommandBtn from '../../components/CommandBtn';
-import { backgroundColor } from 'styled-system';
+import { backgroundColor, style } from 'styled-system';
 
 const PhoneValidationScreen = ({navigation}) => {
 const icon = <FontAwesome5 name={'comments'} />
@@ -33,27 +33,27 @@ const phoneInput = useRef(null);
 
               
 
-            <View style={[styles.subContainer, ]} >
+            <View style={[styles.subContainer,  ]} >
 
-            <Image
-                    style={styles.phoneIcon}
-                    source={require('../../res/images/phone.png')}
-                />
+                <Image
+                        style={styles.phoneIcon}
+                        source={require('../../res/images/phone.png')}
+                    />
 
 
 
-                <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+                <View style={{flex:0.5, alignItems:'center', justifyContent:'center',}}>
 
-                    <Text style={[styles.headerText, {fontSize:20,}]}> 
-                        Phone Number Verification
-                    </Text>
+                        <Text style={[styles.headerText, {fontSize:20,}]}> 
+                            Phone Number Verification
+                        </Text>
 
-                    <Text style={styles.description}> we will send you confirmation code on this number</Text>
+                        <Text style={styles.description}> we will send you confirmation code on this number</Text>
 
                 </View>
 
 
-                <View style={{flex:1, }}>
+                <View style={{flex:1, alignItems:'center', }}>
                     <PhoneInput 
                         defaultCode={'NG'}
                         defaultValue={value}
@@ -62,22 +62,36 @@ const phoneInput = useRef(null);
                         ref={phoneInput}
                         onChangeText= {(text) => setValue(text)}
                         onChangeFormattedText = {(text) => setFormattedValue(text)}
+                        withShadow={true}
+                        placeholder={"081XXXXXX"}
+                        value={value}
 
+                        // STYLES 
+                        containerStyle={styles.containerStyle}
+                        textContainerStyle={styles.textContainerStyle}
+                        textInputStyle= {styles.textInputStyle}
 
 
 
                     />
 
                     <CommandBtn
+
                         title={"Get Otp"}
+                        style={styles.button}
                         onPress={() => {
                             const checkValid = phoneInput.current?.isValidNumber(value)
                             setShowMessage(true)
                             setValid(checkValid ? checkValid :false)
                             if (checkValid ){
-                                alert('Phone number validated correctly')
+                                // alert('Phone number validated correctly')
+                                navigation.navigate('otpverification', {
+                                    phoneNo: formattedValue, 
+
+                                })
                             }else {
-                                alert('phone number failed validation')
+                                // navigation.navigate('otpverification')
+
                             }
                         }}
                         

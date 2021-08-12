@@ -4,14 +4,14 @@ import {NativeBaseProvider,Center, Button} from 'native-base'
 import Global from '../constants/Global'
 
 
-const CommandBtn = ({title , onPress}) => {
+const CommandBtn = ({title, style , onPress}) => {
     return (
                 <View  style={{flex:1}} >
                    <NativeBaseProvider>
                         <Button
                             margin={10}
                             bg={Global.color.primary}
-                            style={styles.commandBtn}
+                            style={[styles.commandBtn, style]}
                             _text={styles.CommandText}
                             onPress={onPress}
 

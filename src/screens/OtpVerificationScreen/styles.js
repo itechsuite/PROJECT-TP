@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import { alignContent, alignItems } from 'styled-system';
+import { alignContent, alignItems, borderColor } from 'styled-system';
 import Global from '../../constants/Global';
 
 
@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
         marginStart:20,
   
     },
+    boldText:{
+        fontWeight:'bold', 
+        color:'#000',
+        fontSize:width /15,
+    },  
 
     backBtn:{
         color:Global.color.black,
@@ -47,6 +52,8 @@ const styles = StyleSheet.create({
         margin:20, 
         fontSize:width /20, 
         textAlign:'center', 
+        color:Global.color.black, 
+
     },
     containerStyle:{
         width: component_width, 
@@ -72,7 +79,24 @@ const styles = StyleSheet.create({
         width:component_width,
         height:70,
     }, 
+    phoneNumber:{
+        fontWeight:'bold', 
+        fontSize:width /20,
+        marginBottom:10,
+        color:'#000',
 
+    }, 
+    changeNumber:{
+        color:Global.color.primary
+    }, 
+    underlineStyleBase:{
+        borderColor:'#000',
+        color:'#000'
+    },
+    underlineStyleHighLighted:{
+        borderColor:Global.color.primary,
+
+    }
 
     
 

@@ -14,6 +14,8 @@ import LoginEmail from './src/screens/LoginEmail';
 import SignUpEmail from './src/screens/SignUpEmail';
 import PhoneValidationScreen from './src/screens/PhoneValidationScreen';
 import Demo from './src/screens/Demo';
+import SplashScreen from './src/screens/SplashScreen';
+import OtpVerificationScreen from './src/screens/OtpVerificationScreen';
 
 function HomeScreen() {
   return (
@@ -25,10 +27,10 @@ function HomeScreen() {
 
 const Stack = createStackNavigator();
 
-function App() {
+const MainStack = () => {
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="onboarding" 
+  <Stack.Navigator initialRouteName="phonevalidation" 
         screenOptions={{
           
         }}
@@ -48,8 +50,33 @@ function App() {
          <Stack.Screen name="signupemail" component={SignUpEmail} options={{headerShown:false}} />
          <Stack.Screen name="phonevalidation" component={PhoneValidationScreen} options={{headerShown:false}} />
          <Stack.Screen name="demo" component={Demo} options={{headerShown:false}} />
+         <Stack.Screen name="splash" component={SplashScreen} options={{headerShown:false}} />
+         <Stack.Screen name="otpverification" component={OtpVerificationScreen} options={{headerShown:false}} />
 
       </Stack.Navigator>
+
+  )
+}
+const FirstTimeStack = () => {
+  return (
+    <Stack.Navigator initialRouteName={"splash"}> 
+      <Stack.Screen  name={"splash"} component ={SplashScreen} options= {{
+        headerShown:false, 
+        
+      }} />
+      <Stack.Screen  name={"onboarding"} component ={OnboardingScreen} />
+
+
+    </Stack.Navigator>
+  )
+}
+
+function App() {
+
+  return (
+    <NavigationContainer>
+        <MainStack />
+        {/* <FirstTimeStack /> */}
     </NavigationContainer>
   );
 }
