@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
     }, 
     underlineStyleBase:{
         borderColor:'#000',
-        color:'#000'
+        color:'#000', 
+        
     },
     underlineStyleHighLighted:{
         borderColor:Global.color.primary,

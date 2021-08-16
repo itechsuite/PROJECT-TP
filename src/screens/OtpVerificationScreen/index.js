@@ -78,9 +78,7 @@ const phoneNumber = JSON.stringify(phoneNo)
                         title={"Verify"}
                         style={styles.button}
                         onPress={() => {
-                        
-                          
-                           
+                            navigation.navigate('verifiedscreen')                   
                         }}
                     />
 

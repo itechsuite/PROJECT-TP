@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import styles from './styles'
 
-const Onboard = ({image, title, description}) => {
+const       Onboard = ({image, title, description}) => {
     return (
         <View style={styles.container}>
             <Image 

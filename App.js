@@ -16,21 +16,17 @@ import PhoneValidationScreen from './src/screens/PhoneValidationScreen';
 import Demo from './src/screens/Demo';
 import SplashScreen from './src/screens/SplashScreen';
 import OtpVerificationScreen from './src/screens/OtpVerificationScreen';
+import VerifiedScreen from './src/screens/VerifiedScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+
 
 const Stack = createStackNavigator();
 
 const MainStack = () => {
 
   return (
-  <Stack.Navigator initialRouteName="phonevalidation" 
+  <Stack.Navigator initialRouteName="home" 
         screenOptions={{
           
         }}
@@ -38,7 +34,6 @@ const MainStack = () => {
         
       >
 
-        <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="onboarding" 
          options={{
            headerShown:false
@@ -52,6 +47,8 @@ const MainStack = () => {
          <Stack.Screen name="demo" component={Demo} options={{headerShown:false}} />
          <Stack.Screen name="splash" component={SplashScreen} options={{headerShown:false}} />
          <Stack.Screen name="otpverification" component={OtpVerificationScreen} options={{headerShown:false}} />
+         <Stack.Screen name="verifiedscreen" component={VerifiedScreen} options={{headerShown:false}} />
+         <Stack.Screen name="home" component={HomeScreen} options={{headerShown:false}} />
 
       </Stack.Navigator>
 

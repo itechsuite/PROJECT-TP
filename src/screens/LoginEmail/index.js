@@ -12,7 +12,7 @@ import HaveAnAccount from '../../components/HaveAnAccount';
 
 
 const LoginEmail = ({navigation}) => {
-const icon = <FontAwesome5 name={'comments'} />
+const icon = <FontAwesome5 name={'comments'}  brand/>
 const [isChecked, setIsChecked] = React.useState(false)
 
 
