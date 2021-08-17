@@ -2,7 +2,7 @@ import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import Global from '../../constants/Global'
 
-const dimen = Dimensions.get('window')
+const dimen = Dimensions.get('screen')
 const styles = StyleSheet.create({
     container:{
         flex:1,

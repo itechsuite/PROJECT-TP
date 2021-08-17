@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Button, Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import Global from '../../constants/Global'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const {width, height} = Dimensions.get('screen')
@@ -16,9 +16,13 @@ const OfficeOutlets = (props) => {
 
             <View style={styles.distance}>
                 <Text style={styles.outletDistance}> {props.outletDistance}</Text>
-                <FontAwesome5 name={'comment'}  />
+                <FontAwesome5 name={'map-marker-alt'}  />
             </View>
 
+            <Pressable style={styles.button} >
+                <Text style={styles.buttonText}> Get Direction</Text>
+
+            </Pressable>
 
            
 
@@ -32,9 +36,21 @@ const styles = StyleSheet.create({
 
     container:{
         width: COMPONENT_WIDTH, 
-        height:200,
+        // height:300,
         marginEnd:20,
     }, 
+    button:{
+        marginTop:20,
+        backgroundColor:'red', 
+        padding:10,
+        alignItems:'center'
+
+
+    }, 
+    buttonText:{
+        color:'#fff',
+        textTransform:'uppercase',
+    },
     imageContainer:{
         width:COMPONENT_WIDTH,
         height:150,
@@ -45,18 +61,24 @@ const styles = StyleSheet.create({
     image:{
         padding:70,
         width:COMPONENT_WIDTH,
-        height:300,
+        height:100,
         resizeMode:'cover',
     }, 
     outletName:{
         marginTop:15, 
         fontWeight:'bold', 
+        textTransform:'uppercase',
 
         
 
-    }, 
+    }, outletDistance:{
+        fontWeight:'bold', 
+        marginEnd:10,
+    },
     distance:{
         flexDirection:'row', 
+        alignItems:'center', 
+
 
     }, 
 

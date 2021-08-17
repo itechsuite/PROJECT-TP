@@ -3,7 +3,8 @@
 import  React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import StackNavigator from './src/navigation/StackNavigator';
 
 // import screens 
 import OnboardingScreen from './src/screens/OnboardingScreen';
@@ -18,42 +19,14 @@ import SplashScreen from './src/screens/SplashScreen';
 import OtpVerificationScreen from './src/screens/OtpVerificationScreen';
 import VerifiedScreen from './src/screens/VerifiedScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import TabNavigator from './src/navigation/TabNavigator';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
 
 
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
-const MainStack = () => {
 
-  return (
-  <Stack.Navigator initialRouteName="home" 
-        screenOptions={{
-          
-        }}
-
-        
-      >
-
-        <Stack.Screen name="onboarding" 
-         options={{
-           headerShown:false
-         }}
-         component ={OnboardingScreen} />
-         <Stack.Screen name="signup" component={SignUpScreen} options={{headerShown:false}} />
-         <Stack.Screen name="login" component={LoginScreen} options={{headerShown:false}} />
-         <Stack.Screen name="loginemail" component={LoginEmail} options={{headerShown:false}} />
-         <Stack.Screen name="signupemail" component={SignUpEmail} options={{headerShown:false}} />
-         <Stack.Screen name="phonevalidation" component={PhoneValidationScreen} options={{headerShown:false}} />
-         <Stack.Screen name="demo" component={Demo} options={{headerShown:false}} />
-         <Stack.Screen name="splash" component={SplashScreen} options={{headerShown:false}} />
-         <Stack.Screen name="otpverification" component={OtpVerificationScreen} options={{headerShown:false}} />
-         <Stack.Screen name="verifiedscreen" component={VerifiedScreen} options={{headerShown:false}} />
-         <Stack.Screen name="home" component={HomeScreen} options={{headerShown:false}} />
-
-      </Stack.Navigator>
-
-  )
-}
 const FirstTimeStack = () => {
   return (
     <Stack.Navigator initialRouteName={"splash"}> 
@@ -72,7 +45,10 @@ function App() {
 
   return (
     <NavigationContainer>
-        <MainStack />
+      <DrawerNavigator />
+      {/* <TabNavigator /> */}
+        {/* <StackNavigator /> */}
+        {/* <MainStack /> */}
         {/* <FirstTimeStack /> */}
     </NavigationContainer>
   );

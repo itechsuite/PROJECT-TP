@@ -1,12 +1,17 @@
 import AnimatedLottieView from 'lottie-react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import styles from './styles'
 
 
 
 
-const VerifiedScreen = () => {
+const VerifiedScreen = ({navigation}) => {
+    useEffect( () =>{
+        setTimeout(() => {
+            navigation.navigate('home')
+        }, 2000 )
+    })
     return (
         <View style={styles.container}>
 
@@ -14,13 +19,9 @@ const VerifiedScreen = () => {
                  source={require('../../res/assets/lottie/success.json')}
                  style={styles.lottieVerify}
                  loop
-                 autoPlay
-                
-                 
-                 
-                
+                 autoPlay 
             />
-            <Text onPress={ () => { setTimeout(() => { console.log("abcd")}, 3000)}} style={styles.text}> Success</Text>
+            <Text  style={styles.text}> Success</Text>
 
         </View>
     )

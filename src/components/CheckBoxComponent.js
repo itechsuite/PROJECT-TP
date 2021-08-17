@@ -29,7 +29,7 @@ export default CheckBoxComponent
 
 const styles = StyleSheet.create({
     title:{
-        fontSize:Dimensions.get('window').width /25
+        fontSize:Dimensions.get('screen').width /25
     },
     CheckBox:{
     },

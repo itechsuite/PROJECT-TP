@@ -1,17 +1,18 @@
 import React from 'react'
 import { FlatList, Image, ScrollView, Text, View , } from 'react-native'
-import Animated from 'react-native-reanimated';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { style } from 'styled-system';
 import FeaturedItem from '../../components/FeaturedItem';
 import FoodItem from '../../components/FoodItem';
 import MenuCategory from '../../components/MenuCategory';
 import OfficeOutlets from '../../components/OfficeOutlets';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import styles from './styles'
 
 const HomeScreen = () => {
     // dummy data 
+
+    const BottomTab = createBottomTabNavigator()
 
     const DummyData = [
         {
@@ -145,7 +146,62 @@ const HomeScreen = () => {
             },
         ]
 
-        // end of dyum
+
+    const DummyOfficeOutlet = [
+
+        {   key:'1',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+        {   key:'2',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+        {   key:'3',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+        {   key:'4',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+        }, 
+        {   key:'5',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+        {   key:'6',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+        {   
+            key: '7',
+            office:"Trans Amadi", 
+            officeAddress:"#18, Trans-Amadi Road, Rumuobiakani Port Harcourt Rivers State, Nigeria.", 
+            distance:"3.4km", 
+            officeImage:require('../../res/images/OfficeImages/office.jpg')
+
+        }, 
+
+    ]
+
+        // end of dummy content
     return (
         <View style={styles.container}>
             
@@ -194,7 +250,7 @@ const HomeScreen = () => {
                     <Text style={styles.featuredHeading}> Menu</Text>
                     <FlatList
                         data={DummyMenuItem}
-                        style={styles.flatlist}
+                        style={[styles.flatlist, {marginTop:1,}]}
                         bounces={false}
                         horizontal
                         keyExtractor={ (item) => item.key}
@@ -213,7 +269,6 @@ const HomeScreen = () => {
 
                 
                 <View style={styles.menuContainer}> 
-                <Text style={styles.featuredHeading}> Food Items </Text>
                 <FlatList
                         data={DummyFoodItem}
                         style={styles.flatlist}
@@ -240,16 +295,21 @@ const HomeScreen = () => {
 
                     </View>
                     <FlatList
-                        data={DummyFoodItem}
+                        data={DummyOfficeOutlet}
                         style={styles.flatlist}
                         bounces={false}
                         horizontal
                         showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.key}
                         renderItem= {({item, index}) =>{
                             return (<OfficeOutlets
-                                        outletName={"Trans Amadi"}
-                                        outletAddress={"No 5 Trans Amadi Port Harcourt"}
-                                        outletDistance={"34km"}
+                                        image={item.officeImage}
+                                        outletNa
+                                        me={item.office}
+                                        outletAddress={item.officeAddress}
+                                        outletDistance={item.distance}
+
+                                       
                                  
                                     />)
 
@@ -258,6 +318,9 @@ const HomeScreen = () => {
                 </View>
 
             </ScrollView>
+            {/* add bottom navigation here  */}
+            
+                
         </View>
     )
 }

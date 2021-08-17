@@ -1,6 +1,6 @@
-const DummyMenuItems = () =>
 
-    [
+export default DummyMenuItems = [
+
         {
             key:'1',
             menuItem:'Rice', 
@@ -42,6 +42,5 @@ const DummyMenuItems = () =>
             menuItem:'Stew', 
             menuIcon:require('../../res/images/menuIcons/Stews.png')
         },
-    ]
 
-export default DummyMenuItems
+    ]

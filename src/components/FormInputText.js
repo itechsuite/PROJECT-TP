@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native'
-import { width } from 'styled-system'
 import Global from '../constants/Global'
 
 const FormInputText = ({ title, isSecureText, value,  placeholder, onChangeText, placeholderTextColor, width }) => {
@@ -26,7 +25,7 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight:'500',
-        fontSize:Dimensions.get('window').width /23
+        fontSize:Dimensions.get('screen').width /23
 
     },
 })

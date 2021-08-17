@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     },
     containerStyle:{
         width: component_width, 
-        height:50,
         backgroundColor:'#F6F6F6',
         borderRadius:8,
         marginTop:10,

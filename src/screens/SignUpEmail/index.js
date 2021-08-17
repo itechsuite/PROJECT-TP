@@ -1,10 +1,6 @@
 import React, {useState, useRef} from 'react'
 import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View , } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FormInputText from '../../components/FormInputText';
-import Global from '../../constants/Global';
-import CheckBoxComponent from '../../components/CheckBoxComponent';
-import { NativeBaseProvider, Button} from 'native-base'
 import CommandBtn from '../../components/CommandBtn';
 import HaveAnAccount from '../../components/HaveAnAccount';
 import styles from './styles'

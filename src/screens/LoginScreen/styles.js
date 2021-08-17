@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { marginTop } from 'styled-system'
 import Global from '../../constants/Global'
 
 

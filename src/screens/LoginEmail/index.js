@@ -3,10 +3,7 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View , } from 're
 import styles from './styles'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FormInputText from '../../components/FormInputText';
-import Global from '../../constants/Global';
-import { flexDirection } from 'styled-system';
 import CheckBoxComponent from '../../components/CheckBoxComponent';
-import { NativeBaseProvider, Button} from 'native-base'
 import CommandBtn from '../../components/CommandBtn';
 import HaveAnAccount from '../../components/HaveAnAccount';
 

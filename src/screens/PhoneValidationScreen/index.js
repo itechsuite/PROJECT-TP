@@ -3,12 +3,10 @@ import { Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpac
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Animated from 'react-native-reanimated';
 import styles from './styles'
-import FormInputText from '../../components/FormInputText';
 
 //phone number text input import 
 import PhoneInput from 'react-native-phone-number-input';
 import CommandBtn from '../../components/CommandBtn';
-import { backgroundColor, style } from 'styled-system';
 
 const PhoneValidationScreen = ({navigation}) => {
 const icon = <FontAwesome5 name={'comments'} />

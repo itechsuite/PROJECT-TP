@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         paddingBottom:20,
 
-
     }, 
     header:{
         flexDirection:'row', 
@@ -78,18 +77,18 @@ const styles = StyleSheet.create({
     }, 
 
     menuCategory:{
-        marginTop:20, 
+        marginTop:10, 
         marginStart:20,
 
     }, 
     menuContainer:{
         marginStart:20, 
-        marginTop:20, 
+         
         
 
     }, 
     officeLocation:{
-        marginTop:20, 
+        marginTop:10, 
         marginStart:20,
 
     }, 
