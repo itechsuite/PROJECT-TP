@@ -38,7 +38,6 @@ const OnboardingScreen = ({navigation}) => {
     ]
     const [activeIndex, setActiveIndex] = React.useState(0);
 
-    let ref = React.useRef(null)
 
     const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -83,7 +82,7 @@ const OnboardingScreen = ({navigation}) => {
                     bounces={false}
                     onScroll = {Animated.event( [
                         { nativeEvent: {contentOffset: {x :scrollX}}}], 
-                         {useNativeDriver: false}
+                        {useNativeDriver: false}
                         )}
                     
                     

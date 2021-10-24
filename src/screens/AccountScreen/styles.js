@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import Global from '../../constants/Global'
 
 
 const {width, height} =Dimensions.get('screen')
@@ -11,10 +12,12 @@ const styles = StyleSheet.create({
         width:width,
         height:height, 
 
-        
-        
-        
     },
+
+    subContainer:{
+        flex:1,
+    },
+
     header:{
         flex:0.1,
         padding:20, 
@@ -31,6 +34,12 @@ const styles = StyleSheet.create({
         alignItems:'center', 
         
     },
+    formControl:{
+        marginStart:10,
+        marginEnd:10, 
+
+     
+    },
     headerText:{
         fontSize:width /20, 
         fontWeight:'bold',
@@ -46,8 +55,6 @@ const styles = StyleSheet.create({
 
 
     imageHolder:{
-        justifyContent:'center', 
-        alignItems:'center',
         width:width /3 , 
         backgroundColor:'#000', 
         height:width /3,
@@ -66,6 +73,13 @@ const styles = StyleSheet.create({
         
     },
     emailholder:{
+        marginTop:10, 
+        padding:10, 
+        paddingStart:20,
+        paddingEnd:20,
+        backgroundColor: Global.color.primary, 
+        borderRadius:20,
+        color:'#fff',
 
     },
 
@@ -79,8 +93,21 @@ const styles = StyleSheet.create({
 
     }, 
     changePassword:{
+        width:width / 1.5, 
+        marginTop:20, 
+        alignSelf:'center', 
+        padding:20,
+        borderColor:Global.color.primary, 
+        borderWidth:1,
+        alignItems:'center', 
+        borderRadius:4, 
+        
 
     },
+    changePasswordText:{
+        color: Global.color.primary,
+
+    }, 
 
 })
 export default styles

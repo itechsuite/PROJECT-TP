@@ -1,57 +1,48 @@
 // In App.js in a new project
 
-import  React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StackNavigator from './src/navigation/StackNavigator';
+import React, {useState, useEffect} from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// import screens 
-import OnboardingScreen from './src/screens/OnboardingScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
-import Page from './src/demo/Page';
-import LoginScreen from './src/screens/LoginScreen';
-import LoginEmail from './src/screens/LoginEmail';
-import SignUpEmail from './src/screens/SignUpEmail';
-import PhoneValidationScreen from './src/screens/PhoneValidationScreen';
-import Demo from './src/screens/Demo';
+// import screens
 import SplashScreen from './src/screens/SplashScreen';
-import OtpVerificationScreen from './src/screens/OtpVerificationScreen';
-import VerifiedScreen from './src/screens/VerifiedScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import TabNavigator from './src/navigation/TabNavigator';
-import DrawerNavigator from './src/navigation/DrawerNavigator';
 
-
-
+import StackRoute from './src/routes/StackRoute';
+import {UserProvider} from './src/Provider/UserProvider';
 const Stack = createNativeStackNavigator();
 
+const App = () => {
+  const [isloading, setIsLoading] = useState(true);
+  const [isFirstLaunch, setIsFirstLaunch] = useState(true);
+  useEffect(() => {
+    // AsyncStorage.getItem('isLoading')
+    setTimeout(() => {
+      setIsLoading(false);
+      console.log('is loading value ', isloading);
+    }, 5000);
+  }, []);
 
-const FirstTimeStack = () => {
-  return (
-    <Stack.Navigator initialRouteName={"splash"}> 
-      <Stack.Screen  name={"splash"} component ={SplashScreen} options= {{
-        headerShown:false, 
-        
-      }} />
-      <Stack.Screen  name={"onboarding"} component ={OnboardingScreen} />
+  if (!isloading) {
+    return (
+      <UserProvider>
+        <StackRoute />
+      </UserProvider>
+    );
+  }
 
-
-    </Stack.Navigator>
-  )
-}
-
-function App() {
-
-  return (
-    <NavigationContainer>
-      <DrawerNavigator />
-      {/* <TabNavigator /> */}
-        {/* <StackNavigator /> */}
-        {/* <MainStack /> */}
-        {/* <FirstTimeStack /> */}
-    </NavigationContainer>
-  );
-}
+  return <SplashScreen />;
+};
 
 export default App;
+
+/**
+ * 
+ * <NavigationContainer>
+        {
+          isFirstLaunch? (
+            <FirstTimeStack />
+          ): (
+            <DrawerNavigator />
+          )
+        }
+      </NavigationContainer>
+ */

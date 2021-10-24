@@ -11,10 +11,6 @@ const styles = StyleSheet.create({
         
     }, 
     header:{
-        flexDirection:'row',
-        alignItems:'center',
-        marginStart:20,
-        marginTop:20,
         
 
     }, 

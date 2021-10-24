@@ -1,20 +1,20 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import {NativeBaseProvider,Center, Button} from 'native-base'
 import Global from '../constants/Global'
 
-
+const {width, height} = Dimensions.get('screen')
 const CommandBtn = ({title, style , onPress}) => {
     return (
-                <View  style={{flex:1}} >
+                <View  style={[ styles.commandBtn,style]} >
                    <NativeBaseProvider>
                         <Button
-                            margin={10}
+                            width={width}
+                            height={height}
                             bg={Global.color.primary}
-                            style={[styles.commandBtn, style]}
-                            _text={styles.CommandText}
-                            onPress={onPress}
-
+                            style={[styles.commandBtn,   ]}
+                            _text={style}
+                            onPress ={onPress}
                         >
 
                             {title}                            
@@ -29,7 +29,6 @@ export default CommandBtn
 
 const styles = StyleSheet.create({
     commandBtn:{
-        resizeMode:'contain', 
     }, 
     CommandText:{
         textTransform:'uppercase',

@@ -1,23 +1,43 @@
-import React from 'react'
+import React, {useCallback, useState, useRef, useReducer} from 'react'
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import Global from '../../constants/Global'
 import { SvgUri } from 'react-native-svg';
+import LottieView from 'lottie-react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigator from '../../navigation/DrawerNavigator';
+import FirstTimeStack from '../../navigation/FirstTimeStack';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 const {width, height} = Dimensions.get('screen')
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+
+
+
+    
     return (
         <View style= {styles.container}>
 
             <View style={styles.subContainer}> 
-                <Image source = {require('../../res/images/logo.png')} style={styles.logo} />
-                <Text style={styles.motto}> we do nothing but good food </Text>
 
-                <SvgUri
-    width="100%"
-    height="100%"
-    uri="http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg"
-  />
+            <LottieView  
+                source={require('../../res/assets/lottie/logo.json')}
+                autoPlay
+                loop={false}
+
+                style={styles.logo}
+            />
+
+
+            {
+                
+            }
+            <Text style={styles.motto}> ...we do nothing but good food </Text>
+
+                              
             </View>
+
+
         </View>
     )
 }
@@ -33,21 +53,19 @@ const styles = StyleSheet.create({
     subContainer:{
         alignItems:'center', 
         justifyContent:'center',
-        flex:0.5, 
+        flex:1, 
 
         
     },
 
 
     logo:{
-        width:width * 0.7,
-        height:100, 
-        resizeMode:'contain', 
-
+        width:width * 0.9,
         
     }, 
     motto:{
-        fontSize: width / 20
+        fontSize: width / 30,
+        padding:10, 
     },
 
 
