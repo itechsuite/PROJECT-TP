@@ -12,62 +12,66 @@ import OtpVerificationScreen from '../screens/OtpVerificationScreen';
 import LoginEmail from '../screens/LoginEmail';
 import VerifiedScreen from '../screens/VerifiedScreen';
 import ActivityIndicatorScreen from '../screens/ActivityIndicator';
+import {UserProvider} from '../Provider/UserProvider';
 
 const Stack = createNativeStackNavigator();
+
 const FirstTimeStack = () => {
   return (
-    <Stack.Navigator initialRouteName={'onboarding'}>
-      <Stack.Screen
-        name="onboarding"
-        options={{headerShown: false}}
-        component={OnboardingScreen}
-      />
-      <Stack.Screen
-        name="signup"
-        component={SignUpScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="login"
-        component={LoginScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="loginemail"
-        component={LoginEmail}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="signupemail"
-        component={SignUpEmail}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="signupemail2"
-        component={stage2}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="phonevalidation"
-        component={PhoneValidationScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="otpverification"
-        component={OtpVerificationScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="verifiedscreen"
-        component={VerifiedScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="indicator"
-        component={ActivityIndicatorScreen}
-        options={{headerShown: false}}
-      />
-    </Stack.Navigator>
+    <UserProvider>
+      <Stack.Navigator initialRouteName={'onboarding'}>
+        <Stack.Screen
+          name="onboarding"
+          options={{headerShown: false}}
+          component={OnboardingScreen}
+        />
+        <Stack.Screen
+          name="signup"
+          component={SignUpScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="login"
+          component={LoginScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="loginemail"
+          component={LoginEmail}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="signupemail"
+          component={SignUpEmail}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="signupemail2"
+          component={stage2}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="phonevalidation"
+          component={PhoneValidationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="otpverification"
+          component={OtpVerificationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="verifiedscreen"
+          component={VerifiedScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="indicator"
+          component={ActivityIndicatorScreen}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </UserProvider>
   );
 };
 

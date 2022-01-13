@@ -18,47 +18,37 @@ import Header from '../../components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //import axios
-import axios from 'axios';
 import {NavigationContainer} from '@react-navigation/native';
 import DrawerNavigator from '../../navigation/DrawerNavigator';
+import NormalButton from '../../components/NormalButton';
+import axios from '../../api/Authentication';
 
 const LoginEmail = ({navigation}) => {
   const icon = <FontAwesome5 name={'comments'} brand />;
   const [isChecked, setIsChecked] = React.useState(false);
-  const [success, setSuccess] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const url = 'http://192.168.82.109:5000/users/login';
+  const [token, setToken] = useState('');
 
-  //implement the login
   const doLogin = () => {
-    //validation
-    if (email && password) {
-      const req = {
-        email: email,
-        password: password,
-      };
-      axios.post(url, req).then(
-        res => {
-          let status = res.data.success;
-          let token = res.data.token;
-          if (status == '1') {
-            // alert('user login successful');
-            AsyncStorage.setItem('token', token).then(
-              console.warn('token saves successfully'),
-              setSuccess(1),
-              navigation.navigate('indicator'),
-            );
-          } else {
-            alert('username or password incorrect');
-          }
-          //   console.warn(status);
-        },
-        err => {
-          console.warn(err);
-        },
-      );
-    }
+    const payload = {email, password};
+    console.log(payload);
+
+    const onSuccess = ({data}) => {
+      setToken(data.token);
+    };
+
+    const onFailure = error => {
+      console.log(error && error.response);
+    };
+    axios
+      .post('customers/login', payload)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(`error ${err}`);
+      });
   };
 
   return (
@@ -97,7 +87,6 @@ const LoginEmail = ({navigation}) => {
               title={'keep me signed in'}
               value={isChecked}
               onValueChange={state => {
-                console.warn(isChecked);
                 setIsChecked(state);
               }}
             />
@@ -112,8 +101,10 @@ const LoginEmail = ({navigation}) => {
         </View>
       </View>
 
-      <CommandBtn
-        title={'Next'}
+      <NormalButton
+        title="Login"
+        _titleStyle={styles.loginBtnText}
+        style={styles.loginBtn}
         onPress={() => {
           doLogin();
         }}

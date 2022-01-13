@@ -9,6 +9,7 @@ import CommandBtn from '../../components/CommandBtn';
 import Header from '../../components/Header';
 import CartItem from '../../components/CartItem';
 import NavigationBtn from '../../components/Buttons/NavigationBtn';
+import NoItem from './NoItem';
 
 const dummy =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ';
@@ -74,7 +75,8 @@ const CartScreen = ({navigation}) => {
       </View>
 
       <View style={styles.body}>
-        <View style={{flex: 0.7}}>
+        {/* 
+        View style={{flex: 0.7}}>
           <FlatList
             //   contentContainerStyle={styles.flatlist}
             data={dummyCartItem}
@@ -91,14 +93,19 @@ const CartScreen = ({navigation}) => {
               );
             }}
           />
-        </View>
-        <View style={styles.subtotalContainer}>
+              
+        
+        </View> */}
+        <NoItem style={styles.NoItem} />
+
+        {/* <View style={styles.subtotalContainer}>
           <Text style={styles.subtotalText}>
             {' '}
             Subtotal ({dummyCartItem.length}) items
           </Text>
           <Text style={styles.subtotal}> N{2000}</Text>
-        </View>
+        </View> */}
+
         <NormalButton
           title={'Checkout'}
           style={styles.button}

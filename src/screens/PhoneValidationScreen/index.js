@@ -30,6 +30,15 @@ const PhoneValidationScreen = ({navigation}) => {
   const [showMessage, setShowMessage] = useState(false);
   const phoneInput = useRef(null);
 
+  const sendMessage = () => {
+    let request = `https://http-api.d7networks.com/send?username=vjwm3928&password=zw2FILhO&dlr-method=POST&dlr-url=https://4ba60af1.ngrok.io/receive&dlr=yes&dlr-level=3&from=smsinfo&content=Your verification message is 12345 &to=${formattedValue}`;
+    fetch(request).then(res => {
+      if (res.ok) {
+        alert('otp have been sent ' + formattedValue);
+      }
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -76,42 +85,24 @@ const PhoneValidationScreen = ({navigation}) => {
             textInputStyle={styles.textInputStyle}
           />
 
-            <NormalButton
-              style={styles.sendBtn}
-              title={'verify'}
-              _titleStyle={{color: 'white'}}
-              onPress={() => {
-                const checkValid = phoneInput.current?.isValidNumber(value);
-                setShowMessage(true);
-                setValid(checkValid ? checkValid : false);
-                if (checkValid) {
-                  // alert('Phone number validated correctly')
-                  navigation.navigate('otpverification', {
-                    phoneNo: formattedValue,
-                  });
-                } else {
-                  // navigation.navigate('otpverification')
-                }
-              }}
-            />
-
-          {/* <CommandBtn
-            title={'Get Otp'}
-            style={styles.button}
+          <NormalButton
+            style={styles.sendBtn}
+            title={'verify'}
+            _titleStyle={{color: 'white'}}
             onPress={() => {
               const checkValid = phoneInput.current?.isValidNumber(value);
               setShowMessage(true);
               setValid(checkValid ? checkValid : false);
               if (checkValid) {
-                // alert('Phone number validated correctly')
-                navigation.navigate('otpverification', {
-                  phoneNo: formattedValue,
-                });
+                //send message using the d7 message api
+                sendMessage();
+
+                this;
               } else {
                 // navigation.navigate('otpverification')
               }
             }}
-          /> */}
+          />
         </View>
       </View>
     </View>

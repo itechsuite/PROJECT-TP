@@ -24,7 +24,7 @@ const ActivityIndicatorScreen = ({navigation}) => {
     //   navigation.navigate('auth');
     // }
 
-    navigation.navigate('app');
+    navigation.replace('app');
   }, []);
 
   return (

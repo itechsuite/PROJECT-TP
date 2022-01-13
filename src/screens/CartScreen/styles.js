@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 15,
     marginVertical: 20,
+    flex: 0.1,
   },
   body: {
     flex: 1,
@@ -53,6 +54,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 20,
+  },
+  NoItem: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 0.8,
   },
 });
 

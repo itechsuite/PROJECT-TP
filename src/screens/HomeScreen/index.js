@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, Image, ScrollView, Text, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FeaturedItem from '../../components/FeaturedItem';
@@ -11,6 +11,14 @@ import styles from './styles';
 import NavigationBtn from '../../components/Buttons/NavigationBtn';
 
 const HomeScreen = ({navigation}) => {
+  const [selected_id, setSelected_id] = useState(null);
+
+  const handleSelection = id => {
+    if (id === selected_id) {
+      setSelected_id(id);
+      alert(selected_id);
+    }
+  };
   // dummy data
 
   const BottomTab = createBottomTabNavigator();
@@ -221,7 +229,13 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.featured}>
           <View style={styles.featuredHeader}>
             <Text style={styles.featuredHeading}> Featured</Text>
-            <Text style={styles.featuredAllOffers}>All offers</Text>
+            <Text
+              onPress={() => {
+                navigation.navigate('featured');
+              }}
+              style={styles.featuredAllOffers}>
+              All offers
+            </Text>
           </View>
 
           <FlatList
@@ -246,7 +260,16 @@ const HomeScreen = ({navigation}) => {
         {/* Menu component */}
 
         <View style={styles.menuCategory}>
-          <Text style={styles.featuredHeading}> Menu</Text>
+          <View style={styles.featuredHeader}>
+            <Text style={styles.featuredHeading}> Menu</Text>
+            <Text
+              onPress={() => {
+                navigation.navigate('category');
+              }}
+              style={styles.featuredAllOffers}>
+              Show All
+            </Text>
+          </View>
           <FlatList
             data={DummyMenuItem}
             style={[styles.flatlist, {marginTop: 1}]}
@@ -256,7 +279,15 @@ const HomeScreen = ({navigation}) => {
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index}) => {
               return (
-                <MenuCategory itemName={item.menuItem} image={item.menuIcon} />
+                <MenuCategory
+                  onPress={() => {
+                    setSelected_id(index);
+                    // alert(item.menuItem);
+                  }}
+                  itemName={item.menuItem}
+                  image={item.menuIcon}
+                  style={index === selected_id ? styles.selected : null}
+                />
               );
             }}
           />

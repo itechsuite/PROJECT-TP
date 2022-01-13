@@ -48,7 +48,7 @@ class UserProvider extends React.Component {
           setpassword: this.setPassword,
           setconfirmpassword: this.setConfirmPassword,
           setphonenumber: this.setPhoneNumber,
-        }}>
+        }}> 
         {this.props.children}
       </UserContext.Provider>
     );

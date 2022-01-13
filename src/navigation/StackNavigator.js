@@ -9,6 +9,8 @@ import HistoryScreen from '../screens/HistoryScren';
 import CustomerSupportScreen from '../screens/CustomerSupportScreen';
 import CartScreen from '../screens/CartScreen';
 import TrackOrderScreen from '../screens/TrackOrderScreen';
+import FeaturedItem from '../screens/FeaturedItem';
+import CategoryScreen from '../screens/CategoryScreen';
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
   return (
@@ -52,14 +54,15 @@ const StackNavigator = () => {
         component={CartScreen}
         options={{headerShown: false}}
       />
-
-      <Stack.Screen 
-
-          name="trackOrder"
-          component ={TrackOrderScreen}
-        
-
+      <Stack.Screen
+        name="category"
+        component={CategoryScreen}
+        options={{headerShown: false}}
       />
+
+      <Stack.Screen name="trackOrder" component={TrackOrderScreen} />
+
+      <Stack.Screen name="featured" component={FeaturedItem} />
     </Stack.Navigator>
   );
 };

@@ -14,35 +14,17 @@ const App = () => {
   const [isloading, setIsLoading] = useState(true);
   const [isFirstLaunch, setIsFirstLaunch] = useState(true);
   useEffect(() => {
-    // AsyncStorage.getItem('isLoading')
     setTimeout(() => {
       setIsLoading(false);
-      console.log('is loading value ', isloading);
+      console.log('App is loading  ', isloading);
     }, 5000);
   }, []);
 
   if (!isloading) {
-    return (
-      <UserProvider>
-        <StackRoute />
-      </UserProvider>
-    );
+    return <StackRoute />;
   }
 
   return <SplashScreen />;
 };
 
 export default App;
-
-/**
- * 
- * <NavigationContainer>
-        {
-          isFirstLaunch? (
-            <FirstTimeStack />
-          ): (
-            <DrawerNavigator />
-          )
-        }
-      </NavigationContainer>
- */

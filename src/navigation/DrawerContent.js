@@ -53,7 +53,7 @@ export function DrawerContent({navigation}, props) {
         />
         <CustomDrawerItem
           title="Featured"
-          onPress={() => navigation.navigate('about')}
+          onPress={() => navigation.navigate('featured')}
         />
         <CustomDrawerItem
           title="Settings"
