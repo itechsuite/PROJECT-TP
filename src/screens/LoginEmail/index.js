@@ -30,7 +30,7 @@ const LoginEmail = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
 
-  const doLogin = () => {
+  const doLogin = async () => {
     const payload = {email, password};
     console.log(payload);
 
@@ -41,7 +41,8 @@ const LoginEmail = ({navigation}) => {
     const onFailure = error => {
       console.log(error && error.response);
     };
-    axios
+
+    await axios
       .post('customers/login', payload)
       .then(response => {
         console.log(response);
